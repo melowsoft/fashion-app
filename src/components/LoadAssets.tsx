@@ -1,10 +1,8 @@
-import type { ReactElement } from "react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { ReactElement, useCallback, useEffect, useState } from "react";
 import AppLoading from "expo-app-loading";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
-import type { InitialState } from "@react-navigation/native";
-import { NavigationContainer } from "@react-navigation/native";
+import { InitialState, NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import Constants from "expo-constants";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -38,7 +36,7 @@ interface LoadAssetsProps {
   children: ReactElement | ReactElement[];
 }
 
-export const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
+const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
   const [isNavigationReady, setIsNavigationReady] = useState(!__DEV__);
   const [initialState, setInitialState] = useState<InitialState | undefined>();
   const ready = useLoadAssets(assets || [], fonts || {});
@@ -75,3 +73,5 @@ export const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
     </NavigationContainer>
   );
 };
+
+export default LoadAssets; 

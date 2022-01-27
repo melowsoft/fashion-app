@@ -1,8 +1,8 @@
-import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from "@react-navigation/native"
+import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack"
 import Onboarding from './src/Authentication/Onboarding';
-import { LoadAssets } from './src/components/LoadAssets';
+import LoadAssets from './src/components/LoadAssets';
+
 
 const fonts = {
   "SFProDisplay-Bold": require("./assets/fonts/SF-Pro-Display-Bold.otf"),
@@ -14,7 +14,7 @@ const fonts = {
 const AuthenticationStack = createStackNavigator()
 
 const AuthenticationNavigator = () => {
- return (<AuthenticationStack.Navigator>
+ return (<AuthenticationStack.Navigator headerMode="none">
       <AuthenticationStack.Screen name="Onboarding" component={Onboarding} />
   </AuthenticationStack.Navigator>)
 }
